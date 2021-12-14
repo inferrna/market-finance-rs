@@ -1,7 +1,8 @@
 use super::Timestamped;
+use serde_derive::{Serialize, Deserialize};
 
 /// The trading session where a quote has occurred
-#[derive(Clone, Copy, Debug)]
+#[derive(Debug, Serialize, Deserialize, Clone, Copy)]
 pub enum TradingSession {
    /// The period of trading before the regular market session
    PreMarket,
@@ -17,7 +18,7 @@ pub enum TradingSession {
 }
 
 /// A symbol's quote at a period in time
-#[derive(Clone, Debug)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Quote {
    /// The symbol for the quote
    pub symbol: String,
